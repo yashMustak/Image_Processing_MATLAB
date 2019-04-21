@@ -1,23 +1,27 @@
 prompt = 'Enter name of image 1 with extension: ';
 imgName1 = input(prompt, 's');
 [filepath1, name1, ext1] = fileparts(imgName);
+Img1 = imread(imgName1);
+[row1, col1, ch1] = size(Img1);
+
 prompt = 'Enter name of image 2 with extension: ';
 imgName2 = input(prompt, 's');
 [filepath2, name2, ext2] = fileparts(imgName);
-Img1 = imread(imgName1);
 Img2 = imread(imgName2);
-[row1, col1, ch1] = size(Img1);
 [row2, col2, ch2] = size(Img2);
+
 prompt = 'choose your primary image [1]: ';
 primary = input(prompt);
 if isempty(primary)
     primary = 1;
 end
+
 prompt = 'Enter the alpha value for primary image [0.5]: ';
 alpha = input(prompt);
 if isempty(alpha)
     alpha = 0.5;
 end
+
 if primary == 1
     if ch1 == 1 && ch2 == 1
         new = uint8(zeros(row1, col1));
@@ -95,6 +99,7 @@ if primary == 1
             end
         end     
     end
+    
     prompt = 'Want to save image (y/n) [n]: ';
     saveans = input(prompt, 's');
     if isempty(saveans)
@@ -109,6 +114,7 @@ if primary == 1
         imwrite(new, savename);
     end
     imshow(new);
+    
 else
     if ch1 == 1 && ch2 == 1
         new = uint8(zeros(row2, col2));
@@ -186,6 +192,7 @@ else
             end
         end     
     end
+    
     prompt = 'Want to save image (y/n) [n]: ';
     saveans = input(prompt, 's');
     if isempty(saveans)
