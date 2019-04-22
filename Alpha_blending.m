@@ -1,12 +1,12 @@
 prompt = 'Enter name of image 1 with extension: ';
 imgName1 = input(prompt, 's');
-[filepath1, name1, ext1] = fileparts(imgName);
+[filepath1, name1, ext1] = fileparts(imgName1);
 Img1 = imread(imgName1);
 [row1, col1, ch1] = size(Img1);
 
 prompt = 'Enter name of image 2 with extension: ';
 imgName2 = input(prompt, 's');
-[filepath2, name2, ext2] = fileparts(imgName);
+[filepath2, name2, ext2] = fileparts(imgName2);
 Img2 = imread(imgName2);
 [row2, col2, ch2] = size(Img2);
 
@@ -32,13 +32,13 @@ if primary == 1
     end
     if row1 ~= row2
         prompt = 'Height of images are not equal. Want to put smaller image at center (y/n) [y]: ';
-        startrow = input(prompt);
+        startrow = input(prompt, 's');
         if isempty(startrow)
             startrow = (max(row1, row2) - min(row1, row2))/2;
         end
         if col1 ~= col2
             prompt = 'Width of images are not equal. Want to put smaller image at center (y/n) [y]: ';
-            startcol = input(prompt);
+            startcol = input(prompt, 's');
             if isempty(startcol)
                 startcol = round((max(col1, col2) - min(col1, col2))/2);
             end
@@ -125,13 +125,13 @@ else
     end
     if row1 ~= row2
         prompt = 'Height of images are not equal. Want to put smaller image at center (y/n) [y]: ';
-        startrow = input(prompt);
+        startrow = input(prompt, 's');
         if isempty(startrow)
             startrow = (max(row1, row2) - min(row1, row2))/2;
         end
         if col1 ~= col2
             prompt = 'Width of images are not equal. Want to put smaller image at center (y/n) [y]: ';
-            startcol = input(prompt);
+            startcol = input(prompt, 's');
             if isempty(startcol)
                 startcol = (max(col1, col2) - min(col1, col2))/2;
             end

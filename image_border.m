@@ -3,7 +3,7 @@ imgName = input(prompt, 's');
 [filepath, name, ext] = fileparts(imgName);
 Img = imread(imgName);
 [row, col, ch] = size(Img);
-prompt = 'Entern the border size (pixels): ';
+prompt = 'Enter the border size (pixels): ';
 border = input(prompt);
 if ch == 1
     new = uint8(zeros(row+2*border, col+2*border));
@@ -44,16 +44,10 @@ else
         b = uint8(input(prompt1));
         for i = 1:row+2*border
             for j = 1:col+2*border
-                if i>border && i<=row+border
-                    if j>border && j<=col+border
-                        new(i, j, 1) = Img(i-border, j-border, 1);
-                        new(i, j, 2) = Img(i-border, j-border, 2);
-                        new(i, j, 3) = Img(i-border, j-border, 3);
-                    else
-                        new(i, j, 1) = r;
-                        new(i, j, 2) = g;
-                        new(i, j, 3) = b;
-                    end
+                if j>border && j<=col+border && i>border && i<=row+border
+                    new(i, j, 1) = Img(i-border, j-border, 1);
+                    new(i, j, 2) = Img(i-border, j-border, 2);
+                    new(i, j, 3) = Img(i-border, j-border, 3);
                 else
                     new(i, j, 1) = r;
                     new(i, j, 2) = g;
