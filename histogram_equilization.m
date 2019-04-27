@@ -3,7 +3,7 @@ imgName = input(prompt, 's');
 [filepath, name, ext] = fileparts(imgName);
 Img = imread(imgName);
 [row, col, ch] = size(Img);
-disp('Please wait, it takes some time...');
+disp('Please wait, it will take some time...');
 
 if ch == 1
     Img = HistGrayImg(Img, row, col);
