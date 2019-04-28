@@ -4,8 +4,12 @@ imgName = input(prompt, 's');
 Img = imread(imgName);
 [row, col, ch] = size(Img);
 
-prompt = 'Enter size of filter: ';
-filterSize = input(prompt);
+prompt = 'Enter size of filter [3]: ';
+InputSize = input(prompt, 's');
+if isempty(InputSize)
+    InputSize = '3';
+end
+filterSize = str2double(InputSize);
 padSize = (filterSize-1)/2;
 
 if ch == 1
